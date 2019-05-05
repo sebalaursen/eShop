@@ -9,4 +9,11 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Product\" />
+    <Folder Include="Models\User\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Models\ProductCell\EmptyClass.cs" />
+  </ItemGroup>
 </Project>
