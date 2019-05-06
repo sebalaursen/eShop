@@ -1,18 +1,20 @@
 ﻿using System;
-namespace eShop.Models.Product
+using eShop.Models.Product;
+
+namespace eShop.Models.Buy
 {
-
-
-    public class ProductInfo
+    public class CartProduct
     {
         public int Id { get; set; }
         public string Title { get; set; }
         public string Subtitle { get; set; }
-        public string Description { get; set; }
         public double Price { get; set; }
-        public double Raiting { get; set; }
-        //enum category
-        public int AmmountOfViews { get; set; }
+        public int Ammount { get; set; }
         public ProductImage Image { get; set; }
+
+        public double getSum()
+        {
+            return Price * Ammount;
+        }
     }
 }

@@ -12,8 +12,11 @@
   <ItemGroup>
     <Folder Include="Models\Product\" />
     <Folder Include="Models\User\" />
+    <Folder Include="Models\Buy\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Models\ProductCell\EmptyClass.cs" />
+    <Compile Remove="Models\EmptyClass.cs" />
+    <Compile Remove="Models\Product\EmptyClass.cs" />
   </ItemGroup>
 </Project>
