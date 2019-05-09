@@ -49,6 +49,11 @@ namespace eShop.Controllers
             return View();
         }
 
+        public IActionResult CheckOut()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
