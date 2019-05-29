@@ -5,19 +5,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using eShop.Models;
+using eShop.Models.Repository;
+using eShop.Models.Product;
 
 namespace eShop.Controllers
 {
     public class HomeController : Controller
     {
+        private ProductRepository repository;
+
         public IActionResult Index()
         {
-            return View();
+            return View(repository.Products);
         }
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Description of the website.";
 
             return View();
         }
@@ -59,5 +63,12 @@ namespace eShop.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public HomeController(ProductRepository repo)
+        {
+            repository = repo;
+        }
+
+       //public ViewResult Index() => View(repository.Products);
     }
 }

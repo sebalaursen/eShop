@@ -11,7 +11,7 @@ namespace eShop.Models.Product
         public string Description { get; set; }
         public double Price { get; set; }
         public double Raiting { get; set; }
-        //enum category
+        public string Category { get; set; }
         public int AmmountOfViews { get; set; }
         public ProductImage Image { get; set; }
     }
