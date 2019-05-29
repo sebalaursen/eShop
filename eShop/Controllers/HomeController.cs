@@ -7,17 +7,39 @@ using Microsoft.AspNetCore.Mvc;
 using eShop.Models;
 using eShop.Models.Repository;
 using eShop.Models.Product;
+using System.Linq;
 
 namespace eShop.Controllers
 {
     public class HomeController : Controller
     {
         private ProductRepository repository;
+        public int PageSize = 6;
 
-        public IActionResult Index()
+        public IActionResult Index(int productPage = 1)
         {
-            return View(repository.Products);
+            return View(new ProductsListViewModel
+            {
+                Products = repository.Products.OrderBy(p => p.Id).Skip((productPage - 1) * PageSize).Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = productPage,
+                    ItemsPerPage = PageSize,
+                    TotalItems = repository.Products.Count()
+                }
+            });
         }
+
+        public ViewResult List(int productPage = 1) => View(new ProductsListViewModel
+         {
+            Products = repository.Products.OrderBy(p => p.Id).Skip((productPage - 1) * PageSize).Take(PageSize),
+            PagingInfo = new PagingInfo
+            {
+                CurrentPage = productPage,
+                ItemsPerPage = PageSize,
+                TotalItems = repository.Products.Count()
+            }
+        });
 
         public IActionResult About()
         {

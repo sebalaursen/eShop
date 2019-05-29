@@ -99,33 +99,33 @@
 
             <div class="row">
 
-                @model IEnumerable<eShop.Models.Product.ProductInfo>
+                @model ProductsListViewModel
 
-                @foreach (var p in Model)
+                @foreach (var p in Model.Products)
                 {
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a asp-controller="Home" asp-action="Product"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a asp-controller="Home" asp-action="Product">@p.Title</a>
-                            </h4>
-                            <h5>@p.Price.ToString("c")</h5>
-                            <p class="card-text">@p.Description</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted"></small>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a asp-controller="Home" asp-action="Product"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a asp-controller="Home" asp-action="Product">@p.Title</a>
+                                </h4>
+                                <h5>@p.Price.ToString("c")</h5>
+                                <p class="card-text">@p.Description</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted"></small>
+                            </div>
                         </div>
                     </div>
-                </div>
                 }
+
+                    <a page-model="@Model.PagingInfo" page-action="Index(2)"></a>
                 @*<div>
             <h3>@p.Title</h3>
             @p.Description
             <h4>@p.Price.ToString("c")</h4>
         </div>*@
-
-                }
 
                 @*<div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
@@ -240,7 +240,6 @@
         </div>*@
 
             </div>
-
         </div>
 
     </div>

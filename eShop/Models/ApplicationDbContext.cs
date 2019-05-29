@@ -8,9 +8,10 @@ namespace eShop.Models
 {
     public class ApplicationDbContext: DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options) { }
+
         public DbSet<ProductInfo> Products { get; set; }
+
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options) { }
 
         public ApplicationDbContext()
         {
